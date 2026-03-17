@@ -1,12 +1,160 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Categorias</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Categorias</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-    
+  <header>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">🌾 EcoTrend 🌾</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Início</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="produto.html">Produto</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="categorias.html">Categorias</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contato.html">Contato</a>
+            </li>
+          </ul>
+          <a href="#" class="btn-eco ms-3">
+            <i class="fas fa-shopping-cart"></i>
+          </a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section>
+    <div class="container">
+      <h2 class="section-title text-center">Produtos</h2>
+      <div class="row">
+        <div class="col-12 col-md-3 mb-4">
+          <div class="card p-3">
+            <h5>Filtros</h5>
+
+            <hr>
+
+            <p class="fw-bold">Categoria</p>
+            <div>
+              <input type="checkbox"> Roupas <br>
+              <input type="checkbox"> Beleza <br>
+              <input type="checkbox"> Casa <br>
+              <input type="checkbox"> Tecnologia
+            </div>
+
+            <hr>
+
+            <p class="fw-bold">Preço</p>
+            <div>
+              <input type="checkbox"> Até R$50 <br>
+              <input type="checkbox"> R$50 - R$100 <br>
+              <input type="checkbox"> Acima de R$100
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-9">
+          <div class="row g-4">
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="card h-100">
+                <img src="img/roupa1.jpg" class="card-img-top" alt="Camiseta Orgânica">
+                <div class="card-body">
+                  <h5>Camiseta Orgânica</h5>
+                  <p class="text-muted">R$ 89,90</p>
+                  <a href="produto.html" class="btn-eco">Ver Detalhes</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="card h-100">
+                <img src="img/sabonete.png"card-img-top" alt="Sabonete Natural">
+                <div class="card-body">
+                  <h5>Sabonete Natural</h5>
+                  <p class="text-muted">R$ 29,90</p>
+                  <a href="produto.html" class="btn-eco">Ver Detalhes</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="card h-100">
+                <img src="img/KitSustentavel.png" class="card-img-top" alt="Kit Sustentável">
+                <div class="card-body">
+                  <h5>Kit Sustentável</h5>
+                  <p class="text-muted">R$ 59,90</p>
+                  <a href="produto.html" class="btn-eco">Ver Detalhes</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="card h-100">
+                <img src="img/Luminária solar.png" class="card-img-top" alt="Luminária Solar">
+                <div class="card-body">
+                  <h5>Luminária Solar</h5>
+                  <p class="text-muted">R$ 149,90</p>
+                  <a href="produto.html" class="btn-eco">Ver Detalhes</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="card h-100">
+                <img src="img/CalçaSustentável.png" class="card-img-top" alt="Calça Sustentável">
+                <div class="card-body">
+                  <h5>Calça Sustentável</h5>
+                  <p class="text-muted">R$ 129,90</p>
+                  <a href="produto.html" class="btn-eco">Ver Detalhes</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="card h-100">
+                <img src="img/ÓleoNatural.png" class="card-img-top" alt="Óleo Natural">
+                <div class="card-body">
+                  <h5>Óleo Natural</h5>
+                  <p class="text-muted">R$ 39,90</p>
+                  <a href="produto.html" class="btn-eco">Ver Detalhes</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container text-center">
+      <p class="fw-bold">🌾 EcoTrend 🌾</p>
+      <div>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-tiktok"></i></a>
+      </div>
+      <p class="small mt-2">© 2026 EcoTrend. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+
 </body>
 </html>
