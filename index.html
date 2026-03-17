@@ -1,129 +1,601 @@
 <!DOCTYPE html>
-<html lang="en">
+<!-- Define o tipo do documento como HTML5 -->
+<html lang="pt-BR">
+<!-- lang="pt-BR" informa ao navegador e leitores de tela que o idioma é português do Brasil -->
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="./css/style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
-
-
-
+  <!-- Bloco <head>: configurações invisíveis da página (meta, fontes, estilos) -->
+  <!-- Define o conjunto de caracteres como UTF-8 (suporta acentos, ç etc.) -->
+  <meta charset="UTF-8">
+  <!-- Faz a página se adaptar ao tamanho da tela do dispositivo (responsividade) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Título que aparece na aba do navegador -->
+  <title>EcoTrend — Moda Consciente</title>
+  <!-- Bootstrap 5.3: framework CSS que fornece grid, navbar, carrossel, utilitários etc. -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome 6.5: biblioteca de ícones vetoriais (ex: fa-tshirt, fa-leaf, fa-cart) -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <!-- Google Fonts: importa as fontes Playfair Display (serifada, usada em títulos)
+       e DM Sans (sem serifa, usada no corpo do texto) -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <!-- Folha de estilos própria do projeto (separada do Bootstrap) -->
+  <link rel="stylesheet" href="./css/styleprincipal.css">
 </head>
-<body> 
-    <header>
-        <nav class="navbar navbar-expand-lg">
-                <div class="container">
-                <!-- Logo que apenas serve para voltar à página inicial -->
-                <a class="navbar-brand fw-bold" href="index.html">🌾 EcoTrend 🌾</a>
-                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-               <div class="collapse navbar-collapse" id="menu">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="./index.html">Início</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./detalhes.html">Detalhes</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./categorias.html">Categorias</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./contato.html">Contato</a>
-                </li>
-            </ul>
-            <!-- Botão do carrinho -->
-              <a href="#" class="btn-eco ms-3">
-                <i class="fas fa-shopping-cart"></i> Carrinho
-              </a>
-            </div>
-            </div> 
-        </nav>
 
-        <!-- Banner -->
-  <div style="background-color: #2e7d32; height: 360px;" class="d-flex flex-column justify-content-center align-items-center text-white text-center px-4">
-    <h1 class="fw-bold">Bem-vindo à EcoTrend</h1>
-    <p class="mt-2 fs-5">Produtos sustentáveis para um estilo de vida consciente</p>
-    <a href="./categorias.html" class="btn-eco mt-3">Ver Produtos</a>
-  </div>
-
-
-  <!-- Produtos em Destaque -->
-  <section>
+<body>
+  <!-- Conteúdo visível da página começa aqui -->
+  <!-- ═══════════════════════════════════════════════════════
+       NAVBAR — barra de navegação fixada no topo da página
+       Usa classes Bootstrap: navbar, navbar-expand-lg (expande
+       em telas grandes), container (centraliza o conteúdo)
+       ═══════════════════════════════════════════════════════ -->
+  <nav class="navbar navbar-expand-lg">
     <div class="container">
-      <h2 class="section-title text-center">Produtos em Destaque</h2>
-      <div class="row g-4">
+      <!-- Logo clicável que volta para a página inicial -->
+      <a class="navbar-brand" href="index.html">🌿 Eco<span>Trend</span> 🌿</a>
+      <!-- Botão hambúrguer: aparece apenas em telas pequenas (mobile).
+           data-bs-toggle="collapse" e data-bs-target="#menu" conectam
+           o botão ao menu que será mostrado/ocultado -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- Menu colapsável: oculto no mobile, visível no desktop.
+           ms-auto empurra os itens para a direita -->
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <!-- Cada <li> é um item do menu -->
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html">Início</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="detalhes.html">Detalhes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="categorias.html">Categorias</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contato.html">Contato</a>
+          </li>
+        </ul>
+        <!-- Botão do carrinho com badge numérico vermelho (Bootstrap badge) -->
+        <a href="#" class="btn-carrinho nav-link ms-lg-3">
+          <i class="fas fa-shopping-cart me-1"></i> Carrinho
+          <!-- badge: bolinha vermelha indicando quantidade de itens -->
+          <span class="badge bg-danger ms-1 rounded-pill">3</span>
+        </a>
+      </div>
 
-        <div class="col-12 col-md-6 col-lg-3">
-          <div class="card h-100">
-            <img src="img/roupa1.jpg" class="card-img-top" alt="Camiseta Orgânica">
-            <div class="card-body">
-              <h5 class="card-title">Camiseta Orgânica</h5>
-              <p class="text-muted">R$ 89,90</p>
-              <a href="./categorias.html" class="btn-eco">Ver Detalhes</a>
+    </div>
+  </nav>
+  <!-- /NAVBAR -->
+
+  <!-- ═══════════════════════════════════════════════════════
+       CARROSSEL — slider automático de banners na hero section
+       Bootstrap Carousel com:
+         - data-bs-ride="carousel" → inicia automático
+         - data-bs-interval="5000" → troca a cada 5 segundos
+         - carousel-fade → transição de fade (em vez de slide)
+       ═══════════════════════════════════════════════════════ -->
+  <div id="carrossel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+    <!-- Bolinhas indicadoras de qual slide está ativo -->
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carrossel" data-bs-slide-to="0" class="active"></button>
+      <button type="button" data-bs-target="#carrossel" data-bs-slide-to="1"></button>
+      <button type="button" data-bs-target="#carrossel" data-bs-slide-to="2"></button>
+    </div>
+    <!-- Container que agrupa todos os slides -->
+    <div class="carousel-inner">
+      <!-- ── SLIDE 1: Apresentação geral ── -->
+      <!-- "active" no primeiro slide é obrigatório para o Bootstrap funcionar -->
+      <div class="carousel-item active">
+        <div class="slide-inner slide-1">
+          <!-- Elemento decorativo de luz atrás do texto (definido no CSS) -->
+          <div class="slide-bg-deco"></div>
+          <!-- Conteúdo textual do slide -->
+          <div class="slide-content">
+            <div class="slide-tag">🌿 Moda Sustentável</div>
+            <h2>Bem-vindo à<br>EcoTrend</h2>
+            <p>Produtos que fazem bem para você e para o planeta. Estilo com consciência.</p>
+            <!-- Botão CTA que leva para a página de categorias -->
+            <a href="categorias.html" class="btn-slide">
+              Ver Coleção <i class="fas fa-arrow-right ms-1"></i>
+            </a>
+          </div>
+          <!-- Badge circular vermelho animado com percentual de desconto -->
+          <div class="promo-badge">-30% <small>hoje</small></div>
+        </div>
+      </div>
+      <!-- /SLIDE 1 -->
+      <!-- ── SLIDE 2: Linha de beleza ── -->
+      <div class="carousel-item">
+        <div class="slide-inner slide-2">
+          <div class="slide-bg-deco"></div>
+          <div class="slide-content">
+            <div class="slide-tag">🔥 Promoção da Semana</div>
+            <h2>Beleza<br>Natural</h2>
+            <p>Cosméticos orgânicos e cruelty-free. Cuide-se com ingredientes da natureza.</p>
+            <a href="categorias.html" class="btn-slide">
+              Aproveitar Oferta <i class="fas fa-arrow-right ms-1"></i>
+            </a>
+          </div>
+          <div class="promo-badge">-40% <small>beleza</small></div>
+        </div>
+      </div>
+      <!-- /SLIDE 2 -->
+      <!-- ── SLIDE 3: Linha casa ── -->
+      <div class="carousel-item">
+        <div class="slide-inner slide-3">
+          <div class="slide-bg-deco"></div>
+          <div class="slide-content">
+            <div class="slide-tag">🏠 Casa & Vida</div>
+            <h2>Lar Mais<br>Consciente</h2>
+            <p>Itens para casa com materiais reciclados e renováveis. Decore com propósito.</p>
+            <a href="categorias.html" class="btn-slide">
+              Descobrir Agora <i class="fas fa-arrow-right ms-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- /SLIDE 3 -->
+    </div>
+    <!-- /carousel-inner -->
+    <!-- Seta "anterior" do carrossel -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#carrossel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <!-- Seta "próximo" do carrossel -->
+    <button class="carousel-control-next" type="button" data-bs-target="#carrossel" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+  <!-- /CARROSSEL -->
+  <!-- ═══════════════════════════════════════════════════════
+       PRODUTOS EM DESTAQUE — grade de produtos com CSS Grid
+       A classe "reveal" faz os elementos aparecerem com
+       animação ao entrar na tela (controlado pelo JS abaixo)
+       ═══════════════════════════════════════════════════════ -->
+  <section id="destaque">
+    <div class="container">
+      <!-- Cabeçalho da seção com rótulo + título + divisor decorativo -->
+      <div class="eco-divider">
+        <div>
+          <p class="section-label mb-0">Seleção Especial</p>
+          <h2 class="section-title mb-0">Produtos em <span>Destaque</span></h2>
+        </div>
+      </div>
+      <!-- CSS Grid: cria automaticamente colunas de no mínimo 240px.
+           Adapta de 1 a 4 colunas dependendo da largura da tela. -->
+      <div class="grid-destaque reveal">
+        <!-- ── CARD 1: Camiseta Orgânica ── -->
+        <div class="card-produto">
+          <!-- Badge verde "Novo" posicionado no canto superior esquerdo -->
+          <span class="badge-novo">Novo</span>
+          <!-- Container da imagem com altura fixa (220px) -->
+          <div class="card-img-wrap">
+            <!-- onerror: se a imagem não existir, esconde ela e mostra o ícone placeholder -->
+            <img src="img/roupa1.jpg" alt="Camiseta Orgânica"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <!-- Ícone exibido como fallback quando a imagem não carrega -->
+            <div class="card-img-placeholder" style="display:none">
+              <i class="fas fa-tshirt"></i>
+            </div>
+          </div>
+          <!-- Corpo do card: categoria, nome, preço e botão -->
+          <div class="card-body-eco">
+            <p class="card-categoria">Roupas</p>
+            <h5 class="card-nome">Camiseta Orgânica</h5>
+            <!-- Preço sem promoção (somente o preço atual) -->
+            <div class="card-preco-wrap">
+              <span class="card-preco">R$ 89,90</span>
+            </div>
+            <a href="./detalhes.html" class="btn-eco">Ver Detalhes</a>
+          </div>
+        </div>
+        <!-- /CARD 1 -->
+        <!-- ── CARD 2: Calça Sustentável (com desconto) ── -->
+        <div class="card-produto">
+          <!-- Badge vermelho de percentual de desconto -->
+          <span class="badge-promo">-25%</span>
+
+          <div class="card-img-wrap">
+            <img src="img/CalçaSustentável.png" alt="Calça Sustentável"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="card-img-placeholder" style="display:none">
+              <i class="fas fa-tshirt"></i>
+            </div>
+          </div>
+
+          <div class="card-body-eco">
+            <p class="card-categoria">Roupas</p>
+            <h5 class="card-nome">Calça Sustentável</h5>
+            <!-- Preço com desconto: mostra preço novo e preço antigo riscado -->
+            <div class="card-preco-wrap">
+              <span class="card-preco">R$ 149,90</span>
+              <span class="card-preco-antigo">R$ 199,90</span>
+            </div>
+            <a href="./detalhes.html" class="btn-eco">Ver Detalhes</a>
+          </div>
+        </div>
+        <!-- /CARD 2 -->
+        <!-- ── CARD 3: Sabonete Natural ── -->
+        <div class="card-produto">
+          <div class="card-img-wrap">
+            <img src="img/sabonete.png" alt="Sabonete Natural"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="card-img-placeholder" style="display:none">
+              <i class="fas fa-leaf"></i>
+            </div>
+          </div>
+          <div class="card-body-eco">
+            <p class="card-categoria">Beleza</p>
+            <h5 class="card-nome">Sabonete Natural</h5>
+            <div class="card-preco-wrap">
+              <span class="card-preco">R$ 24,90</span>
+            </div>
+            <a href="./detalhes.html" class="btn-eco">Ver Detalhes</a>
+          </div>
+        </div>
+        <!-- /CARD 3 -->
+        <!-- ── CARD 4: Óleo Natural (com desconto) ── -->
+        <div class="card-produto">
+          <span class="badge-promo">-30%</span>
+          <div class="card-img-wrap">
+            <img src="img/OleoNatural.png" alt="Óleo Natural"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="card-img-placeholder" style="display:none">
+              <i class="fas fa-leaf"></i>
+            </div>
+          </div>
+          <div class="card-body-eco">
+            <p class="card-categoria">Beleza</p>
+            <h5 class="card-nome">Óleo Natural Essencial</h5>
+            <div class="card-preco-wrap">
+              <span class="card-preco">R$ 55,90</span>
+              <span class="card-preco-antigo">R$ 79,90</span>
+            </div>
+            <a href="./detalhes.html" class="btn-eco">Ver Detalhes</a>
+          </div>
+        </div>
+        <!-- /CARD 4 -->
+        <!-- ── CARD 5: Luminária Solar ── -->
+        <div class="card-produto">
+          <span class="badge-novo">Novo</span>
+          <div class="card-img-wrap">
+            <img src="img/Luminária solar.png" alt="Luminária Solar"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="card-img-placeholder" style="display:none">
+              <i class="fas fa-solar-panel"></i>
+            </div>
+          </div>
+          <div class="card-body-eco">
+            <p class="card-categoria">Tecnologia</p>
+            <h5 class="card-nome">Luminária Solar</h5>
+            <div class="card-preco-wrap">
+              <span class="card-preco">R$ 129,90</span>
+            </div>
+            <a href="./detalhes.html" class="btn-eco">Ver Detalhes</a>
+          </div>
+        </div>
+        <!-- /CARD 5 -->
+        <!-- ── CARD 6: Kit Sustentável ── -->
+        <div class="card-produto">
+          <div class="card-img-wrap">
+            <img src="img/KitSustentavel.png" alt="Kit Sustentável"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="card-img-placeholder" style="display:none">
+              <i class="fas fa-home"></i>
+            </div>
+          </div>
+          <div class="card-body-eco">
+            <p class="card-categoria">Casa</p>
+            <h5 class="card-nome">Kit Sustentável Home</h5>
+            <div class="card-preco-wrap">
+              <span class="card-preco">R$ 199,90</span>
+            </div>
+            <a href="./detalhes.html" class="btn-eco">Ver Detalhes</a>
+          </div>
+        </div>
+        <!-- /CARD 6 -->
+
+      </div>
+      <!-- /grid-destaque -->
+      <!-- Botão para ver todos os produtos (variante com borda) -->
+      <div class="text-center mt-5">
+        <a href="categorias.html" class="btn-eco btn-eco-outline d-inline-block px-5">
+          Ver Todos os Produtos
+        </a>
+      </div>
+
+    </div>
+  </section>
+  <!-- /DESTAQUE -->
+  <!-- ═══════════════════════════════════════════════════════
+       PROMOÇÕES — dois banners lado a lado com descontos
+       ═══════════════════════════════════════════════════════ -->
+  <section id="promocoes">
+    <div class="container position-relative" style="z-index:1">
+
+      <!-- Cabeçalho da seção (cores sobrescritas inline pois fundo é escuro) -->
+      <div class="text-center mb-4">
+        <p class="section-label" style="color:var(--verde-claro)">Ofertas Imperdíveis</p>
+        <h2 class="section-title" style="color:#fff">
+          Promoções da <span style="color:var(--verde-claro)">Semana</span>
+        </h2>
+      </div>
+      <!-- Grade de 2 colunas (vira 1 no mobile via media query no CSS) -->
+      <div class="promo-grid reveal">
+        <!-- Card verde: promoção de roupas -->
+        <div class="promo-card promo-card-1">
+          <!-- Círculos decorativos posicionados com CSS (position: absolute) -->
+          <div class="deco"></div>
+          <div class="deco deco-2"></div>
+          <p class="desconto">30% OFF</p>
+          <h3>Linha de Roupas</h3>
+          <p>Toda a linha de roupas orgânicas com desconto especial. Válido até domingo.</p>
+          <a href="categorias.html" class="btn-promo">Aproveitar</a>
+        </div>
+        <!-- Card terroso: promoção de beleza -->
+        <div class="promo-card promo-card-2">
+          <div class="deco"></div>
+          <div class="deco deco-2"></div>
+          <p class="desconto">40% OFF</p>
+          <h3>Beleza Natural</h3>
+          <p>Cosméticos orgânicos e produtos de cuidado pessoal. Estoque limitado!</p>
+          <a href="categorias.html" class="btn-promo">Ver Ofertas</a>
+        </div>
+      </div>
+      <!-- /promo-grid -->
+    </div>
+  </section>
+  <!-- /PROMOÇÕES -->
+  <!-- ═══════════════════════════════════════════════════════
+       CATEGORIAS — grade de categorias com ícone e quantidade
+       ═══════════════════════════════════════════════════════ -->
+  <section id="categorias">
+    <div class="container">
+
+      <div class="eco-divider">
+        <div>
+          <p class="section-label mb-0">Navegue por</p>
+          <h2 class="section-title mb-0">Nossas <span>Categorias</span></h2>
+        </div>
+      </div>
+      <!-- CSS Grid responsivo: mínimo 160px por coluna -->
+      <div class="grid-categorias reveal">
+        <!-- Cada <a> é um card de categoria clicável que leva para categorias.html -->
+        <a href="categorias.html" class="cat-card">
+          <!-- Círculo com ícone Font Awesome -->
+          <div class="cat-icon"><i class="fas fa-tshirt"></i></div>
+          <span class="cat-nome">Roupas</span>
+          <span class="cat-qtd">24 produtos</span>
+        </a>
+
+        <a href="categorias.html" class="cat-card">
+          <div class="cat-icon"><i class="fas fa-leaf"></i></div>
+          <span class="cat-nome">Beleza</span>
+          <span class="cat-qtd">18 produtos</span>
+        </a>
+
+        <a href="categorias.html" class="cat-card">
+          <div class="cat-icon"><i class="fas fa-home"></i></div>
+          <span class="cat-nome">Casa</span>
+          <span class="cat-qtd">31 produtos</span>
+        </a>
+
+        <a href="categorias.html" class="cat-card">
+          <div class="cat-icon"><i class="fas fa-solar-panel"></i></div>
+          <span class="cat-nome">Tecnologia</span>
+          <span class="cat-qtd">12 produtos</span>
+        </a>
+
+        <a href="categorias.html" class="cat-card">
+          <div class="cat-icon"><i class="fas fa-seedling"></i></div>
+          <span class="cat-nome">Jardim</span>
+          <span class="cat-qtd">9 produtos</span>
+        </a>
+
+        <a href="categorias.html" class="cat-card">
+          <div class="cat-icon"><i class="fas fa-utensils"></i></div>
+          <span class="cat-nome">Alimentos</span>
+          <span class="cat-qtd">15 produtos</span>
+        </a>
+
+      </div>
+      <!-- /grid-categorias -->
+
+    </div>
+  </section>
+  <!-- /CATEGORIAS -->
+  <!-- ═══════════════════════════════════════════════════════
+       DEPOIMENTOS — avaliações reais de clientes
+       Usa o grid do Bootstrap (row + col) para 3 colunas
+       ═══════════════════════════════════════════════════════ -->
+  <section id="depoimentos">
+    <div class="container">
+
+      <div class="eco-divider">
+        <div>
+          <p class="section-label mb-0">O que dizem</p>
+          <h2 class="section-title mb-0">Nossos <span>Clientes</span></h2>
+        </div>
+      </div>
+      <!-- Bootstrap grid: 1 coluna no mobile, 3 colunas a partir do md (768px) -->
+      <div class="row g-4 reveal">
+        <!-- Depoimento 1 -->
+        <div class="col-12 col-md-4">
+          <div class="dep-card">
+            <!-- Estrelas de avaliação (fa-star = cheia, far fa-star = vazia) -->
+            <div class="dep-stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p class="dep-texto">"Amei a qualidade da camiseta orgânica! O tecido é super confortável e a entrega foi rapidíssima. Com certeza comprarei mais."</p>
+            <!-- Autor: avatar com iniciais + nome + cidade -->
+            <div class="dep-autor">
+              <div class="dep-avatar">AM</div>
+              <div>
+                <p class="dep-nome mb-0">Ana Martins</p>
+                <p class="dep-cidade">São Paulo, SP</p>
+              </div>
             </div>
           </div>
         </div>
-  </section>
-
-
-
-          <!-- Categorias -->
-  <section class="bg-eco">
-    <div class="container">
-      <h2 class="section-title text-center">Categorias</h2>
-      <div class="row g-3 text-center">
-        <div class="col-6 col-md-3">
-          <a href="./categorias.html" class="text-decoration-none">
-            <div class="card p-4">
-              <i class="fas fa-tshirt fa-2x mb-2" style="color: var(--verde);"></i>
-              <p class="mb-0 fw-bold">Roupas</p>
+        <!-- Depoimento 2 -->
+        <div class="col-12 col-md-4">
+          <div class="dep-card">
+            <div class="dep-stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
             </div>
-          </a>
+            <p class="dep-texto">"Os cosméticos naturais são incríveis! Minha pele melhorou muito desde que comecei a usar os produtos da EcoTrend. Recomendo!"</p>
+            <div class="dep-autor">
+              <div class="dep-avatar">CS</div>
+              <div>
+                <p class="dep-nome mb-0">Carlos Silva</p>
+                <p class="dep-cidade">Rio de Janeiro, RJ</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="col-6 col-md-3">
-          <a href="./categorias.html" class="text-decoration-none">
-            <div class="card p-4">
-              <i class="fas fa-leaf fa-2x mb-2" style="color: var(--verde);"></i>
-              <p class="mb-0 fw-bold">Beleza</p>
+        <!-- Depoimento 3 -->
+        <div class="col-12 col-md-4">
+          <div class="dep-card">
+            <div class="dep-stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <!-- Estrela vazia = avaliação 4/5 -->
+              <i class="far fa-star"></i>
             </div>
-          </a>
-        </div>
-        <div class="col-6 col-md-3">
-          <a href="./categorias.html" class="text-decoration-none">
-            <div class="card p-4">
-              <i class="fas fa-home fa-2x mb-2" style="color: var(--verde);"></i>
-              <p class="mb-0 fw-bold">Casa</p>
+            <p class="dep-texto">"A luminária solar superou minhas expectativas. Ótima qualidade e ajuda o meio ambiente. A empresa tem um propósito real!"</p>
+            <div class="dep-autor">
+              <div class="dep-avatar">PO</div>
+              <div>
+                <p class="dep-nome mb-0">Paula Oliveira</p>
+                <p class="dep-cidade">Belo Horizonte, MG</p>
+              </div>
             </div>
-          </a>
-        </div>
-        <div class="col-6 col-md-3">
-          <a href="./categorias.html" class="text-decoration-none">
-            <div class="card p-4">
-              <i class="fas fa-solar-panel fa-2x mb-2" style="color: var(--verde);"></i>
-              <p class="mb-0 fw-bold">Tecnologia</p>
-            </div>
-          </a>
+          </div>
         </div>
       </div>
+      <!-- /row depoimentos -->
     </div>
   </section>
-
-
-
-    <footer>
-    <div class="container text-center">
-      <p class="fw-bold mb-2">🌾 EcoTrend 🌾</p>
-      <div class="mb-2">
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-facebook"></i></a>
-        <a href="#"><i class="fab fa-tiktok"></i></a>
+  <!-- /DEPOIMENTOS -->
+  <!-- ═══════════════════════════════════════════════════════
+       FOOTER — rodapé com links, redes sociais e newsletter
+       ═══════════════════════════════════════════════════════ -->
+  <footer>
+    <div class="container">
+      <!-- Bootstrap grid: 4 colunas no desktop, empilha no mobile -->
+      <div class="row g-4">
+        <!-- Coluna 1: Logo, descrição e redes sociais -->
+        <div class="col-12 col-lg-4">
+          <p class="brand">🌿 EcoTrend</p>
+          <p>Produtos sustentáveis para um estilo de vida mais consciente. Cuidamos do planeta enquanto cuidamos de você.</p>
+          <div class="mt-3">
+            <!-- Links de redes sociais com ícones Font Awesome (fab = brands) -->
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-pinterest"></i></a>
+          </div>
+        </div>
+        <!-- Coluna 2: Links da loja -->
+        <div class="col-6 col-lg-2">
+          <h6>Loja</h6>
+          <ul>
+            <li><a href="categorias.html">Categorias</a></li>
+            <li><a href="#">Promoções</a></li>
+            <li><a href="#">Lançamentos</a></li>
+            <li><a href="#">Mais Vendidos</a></li>
+          </ul>
+        </div>
+        <!-- Coluna 3: Links institucionais -->
+        <div class="col-6 col-lg-2">
+          <h6>Empresa</h6>
+          <ul>
+            <li><a href="#">Sobre Nós</a></li>
+            <li><a href="#">Sustentabilidade</a></li>
+            <li><a href="contato.html">Contato</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+        <!-- Coluna 4: Campo de newsletter (input + botão) -->
+        <div class="col-12 col-lg-4">
+          <h6>Newsletter</h6>
+          <p style="font-size:.85rem;opacity:.7">Receba novidades e promoções exclusivas.</p>
+          <!-- Bootstrap input-group: agrupa input + botão lado a lado -->
+          <div class="input-group">
+            <input
+              type="email"
+              class="form-control"
+              placeholder="seu@email.com"
+              style="border-radius:50px 0 0 50px;border:none;font-size:.85rem"
+            >
+            <button
+              class="btn-eco px-3"
+              style="border-radius:0 50px 50px 0;white-space:nowrap;font-size:.82rem"
+            >
+              Assinar
+            </button>
+          </div>
+        </div>
       </div>
-      <p class="small mb-0">© 2026 EcoTrend. Todos os direitos reservados.</p>
+      <!-- /row footer -->
+      <!-- Barra de copyright na parte inferior do footer -->
+      <div class="footer-bottom">
+        © 2026 EcoTrend. Todos os direitos reservados. Feito com 🌿 e propósito.
+      </div>
     </div>
   </footer>
+  <!-- /FOOTER -->
+  <!-- ═══════════════════════════════════════════════════════
+       SCRIPTS — carregados no final do body para não
+       bloquear a renderização da página
+       ═══════════════════════════════════════════════════════ -->
+  <!-- Bootstrap JS (bundle inclui o Popper.js necessário para navbar mobile e carrossel) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    /* ──────────────────────────────────────────────────────
+       SCROLL REVEAL com IntersectionObserver
+       Observa quando elementos .reveal entram na viewport
+       e adiciona a classe .visible para animá-los (via CSS).
+       O setTimeout com delay escalonado cria um efeito
+       em cascata quando vários itens entram ao mesmo tempo.
+    ────────────────────────────────────────────────────── */
+    const reveals = document.querySelectorAll('.reveal');
+    // IntersectionObserver: dispara o callback quando o elemento
+    // atinge 10% de visibilidade na tela (threshold: 0.1)
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          // delay crescente por índice: 0ms, 80ms, 160ms...
+          setTimeout(() => e.target.classList.add('visible'), i * 80);
+        }
+      });
+    }, { threshold: 0.1 });
+    // Registra cada elemento .reveal para ser observado
+    reveals.forEach(r => observer.observe(r));
+    /* ──────────────────────────────────────────────────────
+       STAGGER DOS FILHOS DOS GRIDS
+       Remove .reveal do container do grid (evita animação
+       dupla) e aplica .reveal individualmente em cada
+       card filho, com um delay CSS crescente por índice.
+       Isso faz os cards aparecerem um após o outro.
+    ────────────────────────────────────────────────────── */
+    document.querySelectorAll('.grid-destaque, .grid-categorias').forEach(grid => {
+      Array.from(grid.children).forEach((child, i) => {
+        // delay CSS: 0ms, 80ms, 160ms, 240ms...
+        child.style.transitionDelay = `${i * 80}ms`;
+        child.classList.add('reveal');
+        observer.observe(child);
+      });
+      // Remove a classe do próprio grid para não animar o container
+      grid.classList.remove('reveal');
+    });
+  </script>
+</body>
+</html>

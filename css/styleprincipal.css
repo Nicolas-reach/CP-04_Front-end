@@ -1,0 +1,792 @@
+/* ============================================================
+   style.css — EcoTrend
+   Folha de estilos principal do projeto.
+   Importada pelo index.html via <link rel="stylesheet">.
+   ============================================================ */
+
+
+/* ────────────────────────────────────────────────────────────
+   VARIÁVEIS GLOBAIS (Custom Properties)
+   Define as cores e sombras reutilizáveis em todo o projeto.
+   Para mudar uma cor basta alterar aqui — reflete em tudo.
+   ──────────────────────────────────────────────────────────── */
+:root {
+  --verde:       #2d6a4f;  /* verde principal (botões, títulos) */
+  --verde-claro: #52b788;  /* verde mais claro (hovers, destaques) */
+  --verde-menta: #b7e4c7;  /* verde bem suave (fundos, badges) */
+  --creme:       #f5f0e8;  /* cor de fundo geral da página */
+  --terra:       #8b5e3c;  /* marrom terroso (banner de promoção) */
+  --escuro:      #1b2d24;  /* verde escuro quase preto (navbar, footer, textos) */
+  --card-sombra: 0 8px 32px rgba(45,106,79,.13); /* sombra padrão dos cards */
+}
+/* ────────────────────────────────────────────────────────────
+   RESET BÁSICO
+   Garante que padding e border sejam incluídos na largura total
+   de todos os elementos — evita surpresas de layout.
+   ──────────────────────────────────────────────────────────── */
+* {
+  box-sizing: border-box;
+}
+/* ────────────────────────────────────────────────────────────
+   BODY — configuração geral da página
+   ──────────────────────────────────────────────────────────── */
+body {
+  font-family: 'DM Sans', sans-serif; /* fonte principal do texto */
+  background: var(--creme);           /* fundo bege claro */
+  color: var(--escuro);               /* cor padrão do texto */
+  overflow-x: hidden;                 /* impede scroll horizontal indesejado */
+}
+/* ============================================================
+   NAVBAR — barra de navegação fixa no topo
+   ============================================================ */
+
+/* Container da navbar */
+.navbar {
+  background: var(--escuro) !important; /* fundo escuro (sobrescreve o Bootstrap) */
+  padding: 1rem 0;
+  position: sticky; /* gruda no topo ao rolar a página */
+  top: 0;
+  z-index: 1000;    /* fica acima de todos os outros elementos */
+  border-bottom: 2px solid var(--verde-claro); /* linha decorativa embaixo */
+}
+/* Logo / nome da marca */
+.navbar-brand {
+  font-family: 'Playfair Display', serif; /* fonte serifada elegante */
+  font-size: 1.6rem;
+  color: var(--verde-menta) !important;
+  letter-spacing: .04em;
+}
+/* A palavra "Trend" dentro do logo fica verde claro */
+.navbar-brand span {
+  color: var(--verde-claro);
+}
+/* Links do menu de navegação */
+.nav-link {
+  color: #cde8d8 !important;     /* verde bem claro */
+  font-size: .92rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;     /* letras maiúsculas */
+  padding: .4rem 1rem !important;
+  transition: color .2s;         /* transição suave de cor no hover */
+}
+.nav-link:hover {
+  color: var(--verde-claro) !important; /* muda de cor ao passar o mouse */
+}
+/* Botão do carrinho */
+.btn-carrinho {
+  background: var(--verde);
+  color: #fff !important;
+  border-radius: 50px;           /* formato de pílula */
+  padding: .4rem 1.2rem !important;
+  font-size: .85rem;
+  transition: background .2s, transform .2s;
+}
+.btn-carrinho:hover {
+  background: var(--verde-claro);
+  transform: scale(1.05); /* cresce levemente ao passar o mouse */
+}
+/* Botão hambúrguer (mobile) */
+.navbar-toggler {
+  border-color: var(--verde-claro);
+}
+/* Ícone do hambúrguer: inverte para ficar branco */
+.navbar-toggler-icon {
+  filter: invert(1);
+}
+/* ============================================================
+   CARROSSEL — slider de banners na hero section
+   ============================================================ */
+
+/* Borda decorativa embaixo do carrossel */
+#carrossel {
+  border-bottom: 3px solid var(--verde-menta);
+}
+/* Área interna de cada slide — centraliza o conteúdo */
+.slide-inner {
+  min-height: 480px;
+  display: flex;
+  align-items: center;      /* centraliza verticalmente */
+  justify-content: center;  /* centraliza horizontalmente */
+  position: relative;
+  overflow: hidden;
+}
+/* Gradientes de fundo de cada slide */
+.slide-1 { background: linear-gradient(135deg, #1b2d24 0%, #2d6a4f 60%, #52b788 100%); }
+.slide-2 { background: linear-gradient(135deg, #3d2b1f 0%, #8b5e3c 60%, #d4a96a 100%); }
+.slide-3 { background: linear-gradient(135deg, #1a3040 0%, #2d6a4f 50%, #b7e4c7 100%); }
+/* Elemento decorativo de luz/brilho atrás do conteúdo do slide */
+.slide-bg-deco {
+  position: absolute;
+  inset: 0;          /* ocupa todo o slide */
+  opacity: .08;      /* bem transparente, só dá uma luz sutil */
+  background-image:
+    radial-gradient(circle at 70% 30%, #fff 0%, transparent 55%),
+    radial-gradient(circle at 20% 80%, #fff 0%, transparent 40%);
+}
+/* Bloco de texto e botão dentro do slide */
+.slide-content {
+  position: relative;
+  z-index: 2;        /* fica na frente do .slide-bg-deco */
+  text-align: center;
+  color: #fff;
+  padding: 2rem 1rem;
+}
+/* Tag pequena acima do título (ex: "🌿 Moda Sustentável") */
+.slide-tag {
+  display: inline-block;
+  background: rgba(255,255,255,.15); /* branco com transparência */
+  backdrop-filter: blur(4px);        /* efeito vidro fosco */
+  border: 1px solid rgba(255,255,255,.3);
+  border-radius: 50px;
+  font-size: .78rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  padding: .35rem 1.1rem;
+  margin-bottom: 1.2rem;
+}
+/* Título principal do slide */
+.slide-content h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 6vw, 3.6rem); /* responsivo: mínimo 2rem, máximo 3.6rem */
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: .8rem;
+}
+/* Parágrafo descritivo do slide */
+.slide-content p {
+  font-size: 1.05rem;
+  opacity: .85;
+  max-width: 500px;
+  margin: 0 auto 1.8rem; /* centraliza e dá espaço abaixo */
+}
+/* Botão CTA (call-to-action) do slide */
+.btn-slide {
+  display: inline-block;
+  background: #fff;
+  color: var(--escuro) !important;
+  font-weight: 600;
+  font-size: .9rem;
+  letter-spacing: .06em;
+  padding: .75rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: transform .25s, box-shadow .25s;
+  box-shadow: 0 4px 20px rgba(0,0,0,.25);
+}
+.btn-slide:hover {
+  transform: translateY(-3px) scale(1.04); /* sobe e cresce ao hover */
+  box-shadow: 0 8px 30px rgba(0,0,0,.3);
+}
+/* Setas de navegação do carrossel — mantém o estilo padrão do Bootstrap */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: none;
+}
+.carousel-control-prev,
+.carousel-control-next {
+  width: 6%; /* área de clique das setas */
+}
+/* Indicadores (bolinhas) do carrossel */
+.carousel-indicators [data-bs-target] {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%; /* formato circular */
+  background: rgba(255,255,255,.5);
+  border: none;
+}
+.carousel-indicators .active {
+  background: #fff; /* bolinha ativa fica branca sólida */
+}
+/* Badge circular vermelho de promoção nos slides (ex: "-30% hoje") */
+.promo-badge {
+  position: absolute;
+  top: 2rem;
+  right: 3rem;
+  background: #e63946;   /* vermelho */
+  color: #fff;
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;    /* formato circular */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.1;
+  animation: pulse 2s ease-in-out infinite; /* animação de pulso */
+  z-index: 3;
+}
+/* Texto secundário dentro do badge */
+.promo-badge small {
+  font-family: 'DM Sans', sans-serif;
+  font-size: .68rem;
+  font-weight: 400;
+  opacity: .9;
+}
+
+/* Animação de pulso do badge de promoção */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.08); } /* cresce 8% na metade do ciclo */
+}
+/* ============================================================
+   SEÇÕES GERAIS — estilos compartilhados entre seções
+   ============================================================ */
+
+/* Espaçamento padrão de todas as seções */
+section {
+  padding: 5rem 0;
+}
+/* Rótulo pequeno acima dos títulos de seção (ex: "Seleção Especial") */
+.section-label {
+  font-size: .75rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--verde);
+  font-weight: 500;
+  margin-bottom: .4rem;
+}
+/* Título principal das seções */
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 4vw, 2.6rem); /* responsivo */
+  font-weight: 900;
+  color: var(--escuro);
+  margin-bottom: 2.5rem;
+}
+/* Palavra em destaque dentro do título fica verde */
+.section-title span {
+  color: var(--verde);
+}
+/* Divisor decorativo ao lado dos títulos de seção:
+   mostra um traço gradiente após o título */
+.eco-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.eco-divider::after {
+  content: '';
+  flex: 1; /* ocupa o espaço restante */
+  height: 2px;
+  background: linear-gradient(to right, var(--verde-menta), transparent);
+}
+/* ============================================================
+   SEÇÃO DESTAQUE — produtos em destaque com CSS Grid
+   ============================================================ */
+
+#destaque {
+  background: var(--creme);
+}
+/* Grid responsivo de produtos:
+   cria automaticamente quantas colunas couberem,
+   cada uma com mínimo 240px e máximo 1fr (fração igual) */
+.grid-destaque {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.6rem; /* espaço entre os cards */
+}
+/* ============================================================
+   CARD DE PRODUTO — cada item da grade de produtos
+   ============================================================ */
+
+.card-produto {
+  background: #fff;
+  border-radius: 18px;
+  overflow: hidden;              /* imagem não vaza do arredondamento */
+  box-shadow: var(--card-sombra);
+  transition: transform .28s, box-shadow .28s;
+  border: none;
+  position: relative;           /* necessário para posicionar badges absolutos */
+}
+/* Efeito de elevação ao passar o mouse no card */
+.card-produto:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 48px rgba(45,106,79,.18);
+}
+/* Badge vermelho de desconto (ex: "-25%") no canto superior esquerdo */
+.card-produto .badge-promo {
+  position: absolute;
+  top: .9rem;
+  left: .9rem;
+  background: #e63946;
+  color: #fff;
+  font-size: .7rem;
+  font-weight: 700;
+  padding: .3rem .7rem;
+  border-radius: 50px;
+  letter-spacing: .05em;
+  z-index: 2;
+}
+/* Badge verde "Novo" no canto superior esquerdo */
+.card-produto .badge-novo {
+  position: absolute;
+  top: .9rem;
+  left: .9rem;
+  background: var(--verde);
+  color: #fff;
+  font-size: .7rem;
+  font-weight: 700;
+  padding: .3rem .7rem;
+  border-radius: 50px;
+  letter-spacing: .05em;
+  z-index: 2;
+}
+/* Container da imagem do produto — altura fixa para alinhar os cards */
+.card-img-wrap {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background: #e8f4ed;          /* fundo verde suave caso a imagem demore */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* A imagem cobre toda a área sem distorcer */
+.card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .4s;
+}
+/* Zoom suave na imagem ao passar o mouse no card */
+.card-produto:hover .card-img-wrap img {
+  transform: scale(1.06);
+}
+/* Ícone placeholder exibido quando a imagem não carrega */
+.card-img-placeholder {
+  font-size: 3.5rem;
+  color: var(--verde-claro);
+  opacity: .5;
+}
+/* Área de texto abaixo da imagem */
+.card-body-eco {
+  padding: 1.2rem 1.3rem 1.4rem;
+}
+/* Categoria do produto (ex: "Roupas") */
+.card-categoria {
+  font-size: .7rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--verde);
+  font-weight: 500;
+  margin-bottom: .3rem;
+}
+/* Nome do produto */
+.card-nome {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--escuro);
+  margin-bottom: .4rem;
+  line-height: 1.3;
+}
+/* Linha com preço atual e preço antigo lado a lado */
+.card-preco-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: .5rem;
+  margin-bottom: 1rem;
+}
+/* Preço atual em verde e maior */
+.card-preco {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--verde);
+}
+/* Preço antigo riscado e em cinza */
+.card-preco-antigo {
+  font-size: .85rem;
+  text-decoration: line-through;
+  color: #aaa;
+}
+/* Botão padrão verde dos cards e da página */
+.btn-eco {
+  display: block;
+  background: var(--verde);
+  color: #fff;
+  text-align: center;
+  border-radius: 50px;
+  padding: .55rem 1rem;
+  font-size: .85rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-decoration: none;
+  transition: background .2s, transform .2s;
+  border: none;
+  cursor: pointer;
+}
+.btn-eco:hover {
+  background: var(--escuro);
+  color: #fff;
+  transform: scale(1.03);
+}
+/* Variante do botão: transparente com borda verde */
+.btn-eco-outline {
+  background: transparent;
+  border: 2px solid var(--verde);
+  color: var(--verde);
+}
+.btn-eco-outline:hover {
+  background: var(--verde);
+  color: #fff;
+}
+/* ============================================================
+   SEÇÃO CATEGORIAS — grid de categorias com ícone
+   ============================================================ */
+
+#categorias {
+  background: #fff;
+}
+/* Grid responsivo de categorias:
+   mínimo de 160px por coluna, preenche automaticamente */
+.grid-categorias {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1.2rem;
+}
+/* Card de cada categoria (é um link clicável) */
+.cat-card {
+  background: var(--creme);
+  border-radius: 16px;
+  padding: 2rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  color: var(--escuro);
+  transition: background .25s, transform .25s, box-shadow .25s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .7rem;
+  border: 2px solid transparent; /* borda invisível por padrão */
+}
+/* Hover: fundo menta + borda verde + elevação */
+.cat-card:hover {
+  background: var(--verde-menta);
+  border-color: var(--verde);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(45,106,79,.15);
+  color: var(--escuro);
+}
+/* Círculo verde com ícone Font Awesome */
+.cat-icon {
+  width: 60px;
+  height: 60px;
+  background: var(--verde);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.5rem;
+  transition: background .25s;
+}
+.cat-card:hover .cat-icon {
+  background: var(--escuro); /* ícone fica escuro no hover */
+}
+/* Nome da categoria */
+.cat-nome {
+  font-weight: 600;
+  font-size: .92rem;
+}
+/* Quantidade de produtos da categoria */
+.cat-qtd {
+  font-size: .75rem;
+  color: #777;
+}
+/* ============================================================
+   SEÇÃO PROMOÇÕES — banners de oferta com fundo escuro
+   ============================================================ */
+
+#promocoes {
+  background: var(--escuro);
+  padding: 4rem 0;
+  position: relative;
+  overflow: hidden;
+}
+/* Efeito de luz suave no fundo da seção */
+#promocoes::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(82,183,136,.15) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 50%, rgba(139,94,60,.15) 0%, transparent 60%);
+}
+/* Grid de 2 colunas lado a lado (vira 1 no mobile) */
+.promo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+/* Card individual de promoção */
+.promo-card {
+  border-radius: 18px;
+  padding: 2.5rem 2rem;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+}
+/* Card 1: tons de verde */
+.promo-card-1 {
+  background: linear-gradient(135deg, var(--verde) 0%, var(--verde-claro) 100%);
+}
+/* Card 2: tons terrosos */
+.promo-card-2 {
+  background: linear-gradient(135deg, var(--terra) 0%, #d4a96a 100%);
+}
+/* Círculos decorativos no canto inferior direito dos cards */
+.promo-card .deco {
+  position: absolute;
+  right: -20px;
+  bottom: -20px;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.1);
+}
+/* Segundo círculo menor, deslocado */
+.promo-card .deco-2 {
+  right: 60px;
+  bottom: -50px;
+  width: 80px;
+  height: 80px;
+}
+/* Número grande do desconto (ex: "30% OFF") */
+.promo-card .desconto {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: .4rem;
+}
+/* Título do card de promoção */
+.promo-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: .5rem;
+}
+/* Descrição do card de promoção */
+.promo-card p {
+  font-size: .9rem;
+  opacity: .85;
+  margin-bottom: 1.5rem;
+}
+/* Botão branco dentro dos cards de promoção */
+.btn-promo {
+  display: inline-block;
+  background: #fff;
+  color: var(--escuro) !important;
+  font-weight: 700;
+  font-size: .85rem;
+  padding: .6rem 1.6rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: transform .2s;
+}
+.btn-promo:hover {
+  transform: scale(1.06);
+}
+/* ============================================================
+   SEÇÃO DEPOIMENTOS — avaliações de clientes
+   ============================================================ */
+
+#depoimentos {
+  background: var(--creme);
+}
+/* Card branco de cada depoimento */
+.dep-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 2rem;
+  box-shadow: var(--card-sombra);
+  height: 100%; /* todos os cards da mesma linha ficam com altura igual */
+}
+/* Estrelas de avaliação em laranja */
+.dep-stars {
+  color: #f4a261;
+  margin-bottom: .8rem;
+}
+/* Texto do depoimento */
+.dep-texto {
+  font-size: .95rem;
+  line-height: 1.7;
+  color: #444;
+  margin-bottom: 1.2rem;
+  font-style: italic;
+}
+/* Linha com avatar + nome do autor */
+.dep-autor {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+}
+/* Círculo com as iniciais do autor */
+.dep-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--verde-menta);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: var(--verde);
+  font-size: 1rem;
+}
+/* Nome do autor */
+.dep-nome {
+  font-weight: 600;
+  font-size: .9rem;
+}
+/* Cidade do autor */
+.dep-cidade {
+  font-size: .78rem;
+  color: #888;
+}
+/* ============================================================
+   FOOTER — rodapé da página
+   ============================================================ */
+
+footer {
+  background: var(--escuro);
+  color: #cde8d8;
+  padding: 3.5rem 0 1.5rem;
+  border-top: 3px solid var(--verde); /* linha decorativa no topo */
+}
+/* Logo/nome no footer */
+footer .brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: var(--verde-menta);
+  margin-bottom: .5rem;
+}
+/* Texto descritivo do footer */
+footer p {
+  font-size: .88rem;
+  opacity: .7;
+}
+/* Títulos das colunas do footer */
+footer h6 {
+  color: var(--verde-claro);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin-bottom: 1rem;
+  font-size: .82rem;
+}
+/* Reset de lista */
+footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+footer ul li {
+  margin-bottom: .5rem;
+}
+/* Links do footer */
+footer ul li a {
+  color: #cde8d8;
+  text-decoration: none;
+  font-size: .88rem;
+  opacity: .75;
+  transition: opacity .2s;
+}
+footer ul li a:hover {
+  opacity: 1; /* fica totalmente opaco ao hover */
+}
+
+/* Ícones das redes sociais */
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.08); /* fundo levemente visível */
+  color: var(--verde-menta);
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background .2s, transform .2s;
+  margin-right: .4rem;
+}
+.social-link:hover {
+  background: var(--verde);
+  color: #fff;
+  transform: scale(1.12); /* cresce ao hover */
+}
+/* Barra inferior do footer com o copyright */
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,.08);
+  margin-top: 2.5rem;
+  padding-top: 1.2rem;
+  text-align: center;
+  font-size: .8rem;
+  opacity: .5;
+}
+/* ============================================================
+   ANIMAÇÃO DE SCROLL REVEAL
+   Os elementos com .reveal ficam invisíveis e deslocados para
+   baixo. Quando entram na viewport, o JS adiciona .visible
+   e a transição CSS os anima para a posição final.
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px); /* começa 30px abaixo */
+  transition: opacity .6s, transform .6s;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0); /* volta à posição normal */
+}
+/* ============================================================
+   RESPONSIVIDADE — ajustes para telas menores
+   ============================================================ */
+
+/* Tablet e mobile pequeno (até 768px) */
+@media (max-width: 768px) {
+  /* Banner de promoções vira coluna única */
+  .promo-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* Mobile (até 576px) */
+@media (max-width: 576px) {
+  /* Grid de produtos: 2 colunas (mais compacto) */
+  .grid-destaque {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  /* Grid de categorias: 3 colunas */
+  .grid-categorias {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  /* Slide menor no mobile */
+  .slide-inner {
+    min-height: 340px;
+  }
+  /* Badge menor no mobile */
+  .promo-badge {
+    width: 56px;
+    height: 56px;
+    font-size: .8rem;
+    top: 1rem;
+    right: 1rem;
+  }
+}
+/* Mobile muito pequeno (até 400px) */
+@media (max-width: 400px) {
+  /* Produtos em coluna única */
+  .grid-destaque {
+    grid-template-columns: 1fr;
+  }
+  /* Categorias em 2 colunas */
+  .grid-categorias {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
