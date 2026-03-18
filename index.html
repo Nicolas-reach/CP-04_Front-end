@@ -1,49 +1,28 @@
 <!DOCTYPE html>
-<!-- Define o tipo do documento como HTML5 -->
 <html lang="pt-BR">
-<!-- lang="pt-BR" informa ao navegador e leitores de tela que o idioma é português do Brasil -->
-
 <head>
-  <!-- Bloco <head>: configurações invisíveis da página (meta, fontes, estilos) -->
-  <!-- Define o conjunto de caracteres como UTF-8 (suporta acentos, ç etc.) -->
   <meta charset="UTF-8">
-  <!-- Faz a página se adaptar ao tamanho da tela do dispositivo (responsividade) -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Título que aparece na aba do navegador -->
   <title>EcoTrend — Moda Consciente</title>
-  <!-- Bootstrap 5.3: framework CSS que fornece grid, navbar, carrossel, utilitários etc. -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Font Awesome 6.5: biblioteca de ícones vetoriais (ex: fa-tshirt, fa-leaf, fa-cart) -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-  <!-- Google Fonts: importa as fontes Playfair Display (serifada, usada em títulos)
-       e DM Sans (sem serifa, usada no corpo do texto) -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-  <!-- Folha de estilos própria do projeto (separada do Bootstrap) -->
   <link rel="stylesheet" href="./css/styleprincipal.css">
 </head>
 
 <body>
-  <!-- Conteúdo visível da página começa aqui -->
-  <!-- ═══════════════════════════════════════════════════════
-       NAVBAR — barra de navegação fixada no topo da página
-       Usa classes Bootstrap: navbar, navbar-expand-lg (expande
-       em telas grandes), container (centraliza o conteúdo)
-       ═══════════════════════════════════════════════════════ -->
   <nav class="navbar navbar-expand-lg">
     <div class="container">
       <!-- Logo clicável que volta para a página inicial -->
       <a class="navbar-brand" href="index.html">🌿 Eco<span>Trend</span> 🌿</a>
-      <!-- Botão hambúrguer: aparece apenas em telas pequenas (mobile).
-           data-bs-toggle="collapse" e data-bs-target="#menu" conectam
-           o botão ao menu que será mostrado/ocultado -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <!-- Menu colapsável: oculto no mobile, visível no desktop.
-           ms-auto empurra os itens para a direita -->
+      
+
+      <!-- Menu colapsável -->
       <div class="collapse navbar-collapse" id="menu">
         <ul class="navbar-nav ms-auto align-items-lg-center">
-          <!-- Cada <li> é um item do menu -->
           <li class="nav-item">
             <a class="nav-link active" href="index.html">Início</a>
           </li>
@@ -57,6 +36,7 @@
             <a class="nav-link" href="contato.html">Contato</a>
           </li>
         </ul>
+
         <!-- Botão do carrinho com badge numérico vermelho (Bootstrap badge) -->
         <a href="#" class="btn-carrinho nav-link ms-lg-3">
           <i class="fas fa-shopping-cart me-1"></i> Carrinho
@@ -67,15 +47,7 @@
 
     </div>
   </nav>
-  <!-- /NAVBAR -->
 
-  <!-- ═══════════════════════════════════════════════════════
-       CARROSSEL — slider automático de banners na hero section
-       Bootstrap Carousel com:
-         - data-bs-ride="carousel" → inicia automático
-         - data-bs-interval="5000" → troca a cada 5 segundos
-         - carousel-fade → transição de fade (em vez de slide)
-       ═══════════════════════════════════════════════════════ -->
   <div id="carrossel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
     <!-- Bolinhas indicadoras de qual slide está ativo -->
     <div class="carousel-indicators">
@@ -96,7 +68,7 @@
             <div class="slide-tag">🌿 Moda Sustentável</div>
             <h2>Bem-vindo à<br>EcoTrend</h2>
             <p>Produtos que fazem bem para você e para o planeta. Estilo com consciência.</p>
-            <!-- Botão CTA que leva para a página de categorias -->
+            <!-- Botão que leva para a página de categorias -->
             <a href="categorias.html" class="btn-slide">
               Ver Coleção <i class="fas fa-arrow-right ms-1"></i>
             </a>
@@ -105,8 +77,8 @@
           <div class="promo-badge">-30% <small>hoje</small></div>
         </div>
       </div>
-      <!-- /SLIDE 1 -->
-      <!-- ── SLIDE 2: Linha de beleza ── -->
+
+      <!-- SLIDE 2: Linha de beleza -->
       <div class="carousel-item">
         <div class="slide-inner slide-2">
           <div class="slide-bg-deco"></div>
@@ -121,8 +93,8 @@
           <div class="promo-badge">-40% <small>beleza</small></div>
         </div>
       </div>
-      <!-- /SLIDE 2 -->
-      <!-- ── SLIDE 3: Linha casa ── -->
+
+      <!--  SLIDE 3 -->
       <div class="carousel-item">
         <div class="slide-inner slide-3">
           <div class="slide-bg-deco"></div>
@@ -136,9 +108,8 @@
           </div>
         </div>
       </div>
-      <!-- /SLIDE 3 -->
+
     </div>
-    <!-- /carousel-inner -->
     <!-- Seta "anterior" do carrossel -->
     <button class="carousel-control-prev" type="button" data-bs-target="#carrossel" data-bs-slide="prev">
       <span class="carousel-control-prev-icon"></span>
@@ -148,12 +119,8 @@
       <span class="carousel-control-next-icon"></span>
     </button>
   </div>
-  <!-- /CARROSSEL -->
-  <!-- ═══════════════════════════════════════════════════════
-       PRODUTOS EM DESTAQUE — grade de produtos com CSS Grid
-       A classe "reveal" faz os elementos aparecerem com
-       animação ao entrar na tela (controlado pelo JS abaixo)
-       ═══════════════════════════════════════════════════════ -->
+
+  <!-- CARROSSEL -->
   <section id="destaque">
     <div class="container">
       <!-- Cabeçalho da seção com rótulo + título + divisor decorativo -->
@@ -163,16 +130,13 @@
           <h2 class="section-title mb-0">Produtos em <span>Destaque</span></h2>
         </div>
       </div>
-      <!-- CSS Grid: cria automaticamente colunas de no mínimo 240px.
-           Adapta de 1 a 4 colunas dependendo da largura da tela. -->
+      <!-- CSS Grid -->
       <div class="grid-destaque reveal">
-        <!-- ── CARD 1: Camiseta Orgânica ── -->
+        <!-- CARD 1-->
         <div class="card-produto">
           <!-- Badge verde "Novo" posicionado no canto superior esquerdo -->
           <span class="badge-novo">Novo</span>
-          <!-- Container da imagem com altura fixa (220px) -->
           <div class="card-img-wrap">
-            <!-- onerror: se a imagem não existir, esconde ela e mostra o ícone placeholder -->
             <img src="img/roupa1.jpg" alt="Camiseta Orgânica"
                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
             <!-- Ícone exibido como fallback quando a imagem não carrega -->
@@ -180,19 +144,19 @@
               <i class="fas fa-tshirt"></i>
             </div>
           </div>
-          <!-- Corpo do card: categoria, nome, preço e botão -->
+
+          <!-- CARD 1 -->
           <div class="card-body-eco">
             <p class="card-categoria">Roupas</p>
             <h5 class="card-nome">Camiseta Orgânica</h5>
-            <!-- Preço sem promoção (somente o preço atual) -->
             <div class="card-preco-wrap">
               <span class="card-preco">R$ 89,90</span>
             </div>
             <a href="./detalhes.html" class="btn-eco">Ver Detalhes</a>
           </div>
         </div>
-        <!-- /CARD 1 -->
-        <!-- ── CARD 2: Calça Sustentável (com desconto) ── -->
+
+        <!--  CARD 2: Com desconto  -->
         <div class="card-produto">
           <!-- Badge vermelho de percentual de desconto -->
           <span class="badge-promo">-25%</span>
@@ -210,14 +174,14 @@
             <h5 class="card-nome">Calça Sustentável</h5>
             <!-- Preço com desconto: mostra preço novo e preço antigo riscado -->
             <div class="card-preco-wrap">
-              <span class="card-preco">R$ 149,90</span>
+              <span class="card-preco">R$ 129,90</span>
               <span class="card-preco-antigo">R$ 199,90</span>
             </div>
             <a href="./detalhes.html" class="btn-eco">Ver Detalhes</a>
           </div>
         </div>
-        <!-- /CARD 2 -->
-        <!-- ── CARD 3: Sabonete Natural ── -->
+
+        <!-- CARD 3 -->
         <div class="card-produto">
           <div class="card-img-wrap">
             <img src="img/sabonete.png" alt="Sabonete Natural"
@@ -235,8 +199,8 @@
             <a href="./detalhes.html" class="btn-eco">Ver Detalhes</a>
           </div>
         </div>
-        <!-- /CARD 3 -->
-        <!-- ── CARD 4: Óleo Natural (com desconto) ── -->
+
+        <!-- CARD 4 -->
         <div class="card-produto">
           <span class="badge-promo">-30%</span>
           <div class="card-img-wrap">
@@ -256,8 +220,8 @@
             <a href="./detalhes.html" class="btn-eco">Ver Detalhes</a>
           </div>
         </div>
-        <!-- /CARD 4 -->
-        <!-- ── CARD 5: Luminária Solar ── -->
+
+        <!-- CARD 5 -->
         <div class="card-produto">
           <span class="badge-novo">Novo</span>
           <div class="card-img-wrap">
@@ -276,8 +240,8 @@
             <a href="./detalhes.html" class="btn-eco">Ver Detalhes</a>
           </div>
         </div>
-        <!-- /CARD 5 -->
-        <!-- ── CARD 6: Kit Sustentável ── -->
+
+        <!-- CARD 6-->
         <div class="card-produto">
           <div class="card-img-wrap">
             <img src="img/KitSustentavel.png" alt="Kit Sustentável"
@@ -295,11 +259,10 @@
             <a href="./detalhes.html" class="btn-eco">Ver Detalhes</a>
           </div>
         </div>
-        <!-- /CARD 6 -->
 
       </div>
-      <!-- /grid-destaque -->
-      <!-- Botão para ver todos os produtos (variante com borda) -->
+      <!-- grid-destaque -->
+      <!-- Botão para ver todos os produtos -->
       <div class="text-center mt-5">
         <a href="categorias.html" class="btn-eco btn-eco-outline d-inline-block px-5">
           Ver Todos os Produtos
@@ -308,23 +271,21 @@
 
     </div>
   </section>
-  <!-- /DESTAQUE -->
-  <!-- ═══════════════════════════════════════════════════════
-       PROMOÇÕES — dois banners lado a lado com descontos
-       ═══════════════════════════════════════════════════════ -->
+
   <section id="promocoes">
     <div class="container position-relative" style="z-index:1">
 
-      <!-- Cabeçalho da seção (cores sobrescritas inline pois fundo é escuro) -->
+      <!-- Cabeçalho da seção -->
       <div class="text-center mb-4">
         <p class="section-label" style="color:var(--verde-claro)">Ofertas Imperdíveis</p>
         <h2 class="section-title" style="color:#fff">
           Promoções da <span style="color:var(--verde-claro)">Semana</span>
         </h2>
       </div>
-      <!-- Grade de 2 colunas (vira 1 no mobile via media query no CSS) -->
+
+      <!-- Grade de 2 colunas -->
       <div class="promo-grid reveal">
-        <!-- Card verde: promoção de roupas -->
+        <!-- Card verde -->
         <div class="promo-card promo-card-1">
           <!-- Círculos decorativos posicionados com CSS (position: absolute) -->
           <div class="deco"></div>
@@ -334,7 +295,7 @@
           <p>Toda a linha de roupas orgânicas com desconto especial. Válido até domingo.</p>
           <a href="categorias.html" class="btn-promo">Aproveitar</a>
         </div>
-        <!-- Card terroso: promoção de beleza -->
+        <!-- Card terroso -->
         <div class="promo-card promo-card-2">
           <div class="deco"></div>
           <div class="deco deco-2"></div>
@@ -344,13 +305,11 @@
           <a href="categorias.html" class="btn-promo">Ver Ofertas</a>
         </div>
       </div>
-      <!-- /promo-grid -->
+
     </div>
   </section>
-  <!-- /PROMOÇÕES -->
-  <!-- ═══════════════════════════════════════════════════════
-       CATEGORIAS — grade de categorias com ícone e quantidade
-       ═══════════════════════════════════════════════════════ -->
+
+  <!-- CATEGORIAS -->
   <section id="categorias">
     <div class="container">
 
@@ -360,11 +319,10 @@
           <h2 class="section-title mb-0">Nossas <span>Categorias</span></h2>
         </div>
       </div>
-      <!-- CSS Grid responsivo: mínimo 160px por coluna -->
+      <!-- CSS Grid responsivo -->
       <div class="grid-categorias reveal">
-        <!-- Cada <a> é um card de categoria clicável que leva para categorias.html -->
         <a href="categorias.html" class="cat-card">
-          <!-- Círculo com ícone Font Awesome -->
+          <!-- Círculo com ícone -->
           <div class="cat-icon"><i class="fas fa-tshirt"></i></div>
           <span class="cat-nome">Roupas</span>
           <span class="cat-qtd">24 produtos</span>
@@ -401,15 +359,12 @@
         </a>
 
       </div>
-      <!-- /grid-categorias -->
+
 
     </div>
   </section>
-  <!-- /CATEGORIAS -->
-  <!-- ═══════════════════════════════════════════════════════
-       DEPOIMENTOS — avaliações reais de clientes
-       Usa o grid do Bootstrap (row + col) para 3 colunas
-       ═══════════════════════════════════════════════════════ -->
+
+  <!-- CLIENTES -->
   <section id="depoimentos">
     <div class="container">
 
@@ -419,19 +374,19 @@
           <h2 class="section-title mb-0">Nossos <span>Clientes</span></h2>
         </div>
       </div>
-      <!-- Bootstrap grid: 1 coluna no mobile, 3 colunas a partir do md (768px) -->
+      <!-- Bootstrap grid -->
       <div class="row g-4 reveal">
         <!-- Depoimento 1 -->
         <div class="col-12 col-md-4">
           <div class="dep-card">
-            <!-- Estrelas de avaliação (fa-star = cheia, far fa-star = vazia) -->
+            <!-- Estrelas de avaliação -->
             <div class="dep-stars">
               <i class="fas fa-star"></i><i class="fas fa-star"></i>
               <i class="fas fa-star"></i><i class="fas fa-star"></i>
               <i class="fas fa-star"></i>
             </div>
             <p class="dep-texto">"Amei a qualidade da camiseta orgânica! O tecido é super confortável e a entrega foi rapidíssima. Com certeza comprarei mais."</p>
-            <!-- Autor: avatar com iniciais + nome + cidade -->
+            <!-- CLIENTES FICTICIOS -->
             <div class="dep-autor">
               <div class="dep-avatar">AM</div>
               <div>
@@ -441,6 +396,7 @@
             </div>
           </div>
         </div>
+
         <!-- Depoimento 2 -->
         <div class="col-12 col-md-4">
           <div class="dep-card">
@@ -459,13 +415,14 @@
             </div>
           </div>
         </div>
+
         <!-- Depoimento 3 -->
         <div class="col-12 col-md-4">
           <div class="dep-card">
             <div class="dep-stars">
               <i class="fas fa-star"></i><i class="fas fa-star"></i>
               <i class="fas fa-star"></i><i class="fas fa-star"></i>
-              <!-- Estrela vazia = avaliação 4/5 -->
+              <!-- Estrela vazia -->
               <i class="far fa-star"></i>
             </div>
             <p class="dep-texto">"A luminária solar superou minhas expectativas. Ótima qualidade e ajuda o meio ambiente. A empresa tem um propósito real!"</p>
@@ -479,27 +436,21 @@
           </div>
         </div>
       </div>
-      <!-- /row depoimentos -->
     </div>
   </section>
-  <!-- /DEPOIMENTOS -->
-  <!-- ═══════════════════════════════════════════════════════
-       FOOTER — rodapé com links, redes sociais e newsletter
-       ═══════════════════════════════════════════════════════ -->
   <footer>
     <div class="container">
-      <!-- Bootstrap grid: 4 colunas no desktop, empilha no mobile -->
+      <!-- Bootstrap grid -->
       <div class="row g-4">
         <!-- Coluna 1: Logo, descrição e redes sociais -->
         <div class="col-12 col-lg-4">
           <p class="brand">🌿 EcoTrend</p>
           <p>Produtos sustentáveis para um estilo de vida mais consciente. Cuidamos do planeta enquanto cuidamos de você.</p>
           <div class="mt-3">
-            <!-- Links de redes sociais com ícones Font Awesome (fab = brands) -->
+            <!-- Links de redes sociais com ícones -->
             <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
             <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
             <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-pinterest"></i></a>
           </div>
         </div>
         <!-- Coluna 2: Links da loja -->
@@ -519,14 +470,13 @@
             <li><a href="#">Sobre Nós</a></li>
             <li><a href="#">Sustentabilidade</a></li>
             <li><a href="contato.html">Contato</a></li>
-            <li><a href="#">Blog</a></li>
           </ul>
         </div>
-        <!-- Coluna 4: Campo de newsletter (input + botão) -->
+        <!-- Coluna 4: Campo de newsletter -->
         <div class="col-12 col-lg-4">
           <h6>Newsletter</h6>
           <p style="font-size:.85rem;opacity:.7">Receba novidades e promoções exclusivas.</p>
-          <!-- Bootstrap input-group: agrupa input + botão lado a lado -->
+          <!-- Bootstrap input-group-->
           <div class="input-group">
             <input
               type="email"
@@ -543,52 +493,32 @@
           </div>
         </div>
       </div>
-      <!-- /row footer -->
-      <!-- Barra de copyright na parte inferior do footer -->
+      <!-- Barra de copyright-->
       <div class="footer-bottom">
         © 2026 EcoTrend. Todos os direitos reservados. Feito com 🌿 e propósito.
       </div>
     </div>
   </footer>
-  <!-- /FOOTER -->
-  <!-- ═══════════════════════════════════════════════════════
-       SCRIPTS — carregados no final do body para não
-       bloquear a renderização da página
-       ═══════════════════════════════════════════════════════ -->
-  <!-- Bootstrap JS (bundle inclui o Popper.js necessário para navbar mobile e carrossel) -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+ 
 
   <script>
-    /* ──────────────────────────────────────────────────────
-       SCROLL REVEAL com IntersectionObserver
-       Observa quando elementos .reveal entram na viewport
-       e adiciona a classe .visible para animá-los (via CSS).
-       O setTimeout com delay escalonado cria um efeito
-       em cascata quando vários itens entram ao mesmo tempo.
-    ────────────────────────────────────────────────────── */
+
     const reveals = document.querySelectorAll('.reveal');
     // IntersectionObserver: dispara o callback quando o elemento
-    // atinge 10% de visibilidade na tela (threshold: 0.1)
+    // atinge 10% de visibilidade na tela 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((e, i) => {
         if (e.isIntersecting) {
-          // delay crescente por índice: 0ms, 80ms, 160ms...
+          // delay crescente por índice
           setTimeout(() => e.target.classList.add('visible'), i * 80);
         }
       });
     }, { threshold: 0.1 });
     // Registra cada elemento .reveal para ser observado
     reveals.forEach(r => observer.observe(r));
-    /* ──────────────────────────────────────────────────────
-       STAGGER DOS FILHOS DOS GRIDS
-       Remove .reveal do container do grid (evita animação
-       dupla) e aplica .reveal individualmente em cada
-       card filho, com um delay CSS crescente por índice.
-       Isso faz os cards aparecerem um após o outro.
-    ────────────────────────────────────────────────────── */
     document.querySelectorAll('.grid-destaque, .grid-categorias').forEach(grid => {
       Array.from(grid.children).forEach((child, i) => {
-        // delay CSS: 0ms, 80ms, 160ms, 240ms...
+        // delay CSS para cada item filho do grid, criando um efeito cascata
         child.style.transitionDelay = `${i * 80}ms`;
         child.classList.add('reveal');
         observer.observe(child);
@@ -597,5 +527,7 @@
       grid.classList.remove('reveal');
     });
   </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
