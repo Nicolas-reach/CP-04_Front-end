@@ -32,4 +32,4 @@ A EcoTrend é um e-commerce especializado em produtos sustentáveis e ecológico
 
 ## 🚀 Como Acessar
 
-O projeto está disponível em: () 
+O projeto está disponível em: https://nicolas-reach.github.io/CP-04_Front-end/
